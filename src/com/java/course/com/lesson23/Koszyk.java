@@ -1,6 +1,5 @@
 package com.java.course.com.lesson23;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Koszyk {

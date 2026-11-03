@@ -1,4 +1,4 @@
-package com.java.course.com.lesson80;
+package com.java.course.com.lesson81;
 
 import java.time.LocalDate;
 import java.time.Period;
@@ -11,6 +11,8 @@ public class Person {
     private String lastName;
     private LocalDate birtdate;
     private String job;
+
+    private int wiek;
 
     private String miasto;
 
@@ -25,6 +27,21 @@ public class Person {
     public Person(String firstName, String miasto) {
         this.firstName = firstName;
         this.miasto = miasto;
+    }
+
+    public Person(String firstName, String lastName, LocalDate birtdate, String job, int wiek, String miasto) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.birtdate = birtdate;
+        this.job = job;
+        this.wiek = wiek;
+        this.miasto = miasto;
+    }
+
+    public int wiek() {
+        LocalDate dzisiaj = LocalDate.now();
+        int wiekOsoby = Period.between(this.getBirtdate(), dzisiaj).getYears();
+        return wiekOsoby;
     }
 
     //Napisz funkcje ktora obliczy sarednia wieku z osob podanych w parametrze
@@ -50,6 +67,14 @@ public class Person {
             }
         }
         return mapa;
+    }
+
+    public int getWiek() {
+        return wiek;
+    }
+
+    public void setWiek(int wiek) {
+        this.wiek = wiek;
     }
 
     public String getMiasto() {
@@ -99,6 +124,7 @@ public class Person {
                 ", lastName='" + lastName + '\'' +
                 ", birtdate=" + birtdate +
                 ", job='" + job + '\'' +
+                ", wiek=" + wiek +
                 ", miasto='" + miasto + '\'' +
                 '}';
     }
